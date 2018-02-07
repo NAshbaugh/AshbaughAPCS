@@ -70,8 +70,68 @@ class Operators {
     // else {
     //     System.out.println("Do you need to save more money, still?");
     // }
-    String targetSavingsGoal = "1000"; 
-    String savingsPerMonth = "100";
+ 
+    //  Make "targetSavingsGoal" and "savingsPerMonth" variables, and see how many months it will take to reach your goal.
+
+    // int targetSavingsGoal = 1000;
+    // int savingsPerMonth = 50;
+    // int monthsUntilGoal = targetSavingsGoal / savingsPerMonth;
+    // System.out.println("monthsUntilGoal");
+    // System.out.println(monthsUntilGoal);
+
+    // Pick 15 random words and assign them to String variables, then print out 3 or more random sentences using various combinations of those words.
+
+    // String my = "my";
+    // String idea = "idea";
+    // String coolest = "what";
+    // String who = "who";
+    // String Nathan = "Nathan";
+    // String tells = "tells";
+    // String dies = "dies";
+    // String is = "is";
+    // String lives = "lives";
+    // String speed = "speed";
+    // String superpower = "superpower";
+    // String story = "story";
+    // String name = "name";
+    // String Ashbaugh = "Ashbaugh";
+    // String Douglas = "Douglas";
+    // String the = "the";
+    // String your = "your";
+    // String MeLlamo = my + " " + name + " " + is + " " + Nathan + " " + Douglas + " " + Ashbaugh;
+    // String Powa = the + " " + coolest + " " + superpower + " " + is + " " + speed;
+    // String Hamilton = who + " " + lives + " " + who + " " + dies + " " + who + " " + tells + " " + your + " " + story;
+    // System.out.println(MeLlamo);
+    // System.out.println(Powa);
+    // System.out.println(Hamilton);
+
+    // Make "loanAmount", "interestRate", and "loanPaybackPeriod"(months) variables. Use these to calculate an "interestPerMonth" variable, then calculate how much money your loan will cost you.
+
+    // double loanAmount = 100000;
+    // double interestRate = .0446;
+    // double loanPaybackPeriod = 48;
+    // double interestPerMonth = interestRate * loanPaybackPeriod;
+    // double loanTotalCost = interestPerMonth + loanAmount;
+    // System.out.println("The total loan after 4 years is $" + loanTotalCost);
+
+    // Make "hasGirlfriend" (or boyfriend), "hasMoney", and "hasJob" as Boolean variables. Write an if-else tree that will print: 
+
+    Boolean hasGirlfriend = false;
+    Boolean hasMoney = true;
+    Boolean hasJob = false;
     
+    if(hasGirlfriend) {
+        System.out.println("Success!");
+    }
+    else {
+        System.out.println("Plenty of fish in the sea!");
+    }
+
+    if(hasMoney || hasJob) {
+        System.out.println("You're rolling it! Go you!");
+    }
+    else {
+        System.out.println("Maybe you should rethink your life decisions...");
+    }
     }
 }
