@@ -11,18 +11,7 @@ class ValidationUtils {
             System.out.println("String Failure!");
         }
     }
-
     
-    public static Boolean isValidString(Scanner scan) {
-        try {
-            String s = scan.nextLine();
-        }
-        catch(Exception e) {
-            return false; //An error was raised. The user input could not be read as a String.
-        }
-        return true; //No error was raised. The scanner read it successfully as a String.
-    }
-
     public static void main(int args[]) {
         System.out.print("Enter an integer: ");
         Scanner scan = new Scanner(System.in);
@@ -33,10 +22,22 @@ class ValidationUtils {
             System.out.println("Int Failure!");
         }
     }
+
+    public static Boolean isValidString(Scanner scan) {
+        try {
+            String s = scan.nextLine();
+        }
+        catch(Exception e) {
+            return false; //An error was raised. The user input could not be read as a String.
+        }
+        return true; //No error was raised. The scanner read it successfully as a String.
+    }
+
+    
     
     public static Boolean isValidInt(Scanner scan) {
         try {
-            String s = scan.nextLine();
+            int s = scan.nextInt();
         }
         catch(Exception e) {
             return false;
