@@ -10,19 +10,25 @@ class ValidationUtils {
         else {
             System.out.println("String Failure!");
         }
-    }
-    
-    public static void main(int args[]) {
+        
         System.out.print("Enter an integer: ");
-        Scanner scan = new Scanner(System.in);
         if(isValidInt(scan)) {
             System.out.println("Int Success!");
         }
         else {
             System.out.println("Int Failure!");
         }
+        
+        System.out.print("Enter an double: ");
+        if(isValidDouble(scan)) {
+            System.out.println("Double Success!");
+        }
+        else {
+            System.out.println("Double Failure!");
+        }
     }
-
+    
+   
     public static Boolean isValidString(Scanner scan) {
         try {
             String s = scan.nextLine();
@@ -33,8 +39,6 @@ class ValidationUtils {
         return true; //No error was raised. The scanner read it successfully as a String.
     }
 
-    
-    
     public static Boolean isValidInt(Scanner scan) {
         try {
             int s = scan.nextInt();
@@ -44,5 +48,27 @@ class ValidationUtils {
         }
         return true; 
     }
+
+    public static Boolean isValidDouble(Scanner scan) {
+        try {
+            Double s = scan.nextDouble();
+        }
+        catch(Exception e) {
+            return false; 
+        }
+        return true; 
+    }
+
+    public static Boolean isValidBoolean(Scanner scan) {
+        try {
+            Double s = scan.nextDouble();
+        }
+        catch(Exception e) {
+            return false; 
+        }
+        return true; 
+    }
+
+
 }
 
