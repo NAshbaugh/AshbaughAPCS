@@ -12,6 +12,7 @@ class ValidationUtils {
         }
         
         System.out.print("Enter an integer: ");
+        scan = new Scanner(System.in);
         if(isValidInt(scan)) {
             System.out.println("Int Success!");
         }
@@ -19,12 +20,22 @@ class ValidationUtils {
             System.out.println("Int Failure!");
         }
         
-        System.out.print("Enter an double: ");
+        System.out.println("Enter a double: ");
+        scan = new Scanner(System.in);
         if(isValidDouble(scan)) {
             System.out.println("Double Success!");
         }
         else {
             System.out.println("Double Failure!");
+        }
+        
+        System.out.println("Enter a Bool (T/F): ");
+        scan = new Scanner(System.in);
+        if(isValidBool(scan)) {
+            System.out.println("Boolean Success!");
+        }
+        else {
+            System.out.println("Boolean Failure!");
         }
     }
     
@@ -59,14 +70,17 @@ class ValidationUtils {
         return true; 
     }
 
-    public static Boolean isValidBoolean(Scanner scan) {
-        try {
-            Double s = scan.nextDouble();
-        }
-        catch(Exception e) {
-            return false; 
-        }
-        return true; 
+    public static Boolean isValidBool(Scanner scan) {
+        String s = scan.nextLine();
+        return (
+            s.toLowerCase().equals("T")||
+            s.toLowerCase().equals("t")||
+            s.toLowerCase().equals("F")||
+            s.toLowerCase().equals("f")||
+            s.toLowerCase().equals("True")||
+            s.toLowerCase().equals("False")||
+            s.toLowerCase().equals("true")||
+            s.toLowerCase().equals("false"));
     }
 
 
