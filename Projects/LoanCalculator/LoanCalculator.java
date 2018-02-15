@@ -26,13 +26,24 @@ public class LoanCalculator{
             flatInterest();
         }
         else {
-            System.out.println("Other modes not yet supported.") //Replace this with calls to your appropriate functions            
+            System.out.println("Other modes not yet supported."); //Replace this with calls to your appropriate functions            
         }
     }
 
     public static void flatInterest() {
         System.out.println("Still a stub function. Not yet implemented"); //Delete this once you implement the function
         //Calculate flat interest and print it out here
+        Scanner scan;
+        while(true) {
+            System.out.println("Enter your loan amount ($):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextDouble()) {
+                loanAmt = scan.nextDouble();
+                if(0 < loanAmt) {
+                    break;
+                }
+            }
+        }
     }
 
     public static void printModeStatement() {
