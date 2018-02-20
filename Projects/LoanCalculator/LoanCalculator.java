@@ -157,7 +157,7 @@ public class LoanCalculator{
         double loanMonths = loanTerm * 12;
         double ratePerMonth = interestPercent / 12;
         double monthlyPayment = 1 + loanAmt * (ratePerMonth / (1 - Math.pow((1 + ratePerMonth), (loanTerm * -12))));
-        double loanTotal = loanAmt * Math.pow(1 + (interestPercent / 12), loanMonths) - monthlyPayment;
+        double loanTotal = ((interestPecent * loanAmt) / loanMonths) / ( 1-(Math.pow((interestPercent / 12) + 1, (0 - loanMonths))));
         double remainingPayment = loanTotal % monthlyPayment;
         double totalInterest = loanTotal - loanAmt;
         System.out.println("Original Loan Amount: $" + loanAmt);
