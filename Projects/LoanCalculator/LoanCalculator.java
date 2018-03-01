@@ -26,16 +26,20 @@ public class LoanCalculator{
             flatInterest();
         }
         else {
-            System.out.println("Other modes not yet supported."); //Replace this with calls to your appropriate functions            
+            if(mode == 2) {
+                compoundingInterestNoPayment();
+            }
+            else {
+                compoundingInterestWithPayement();
+                
+            }     
         }
     }
 
     public static void flatInterest() {
-        System.out.println("Still a stub function. Not yet implemented"); //Delete this once you implement the function
-        //Calculate flat interest and print it out here
         Scanner scan;
         while(true) {
-            System.out.println("Enter your loan amount ($):");
+            System.out.println("How much is your loan? ($):");
             scan = new Scanner(System.in);
             if(scan.hasNextDouble()) {
                 loanAmt = scan.nextDouble();
@@ -44,8 +48,127 @@ public class LoanCalculator{
                 }
             }
         }
+        while(true) {
+            System.out.println("How long is your loan period? (years):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextInt()) {
+                loanTerm = scan.nextInt();
+                if(0 < loanTerm) {
+                    break;
+                }
+            }
+        }
+        while(true) {
+            System.out.println("What is your given interest rate? (ex. 3.5% = 3.5):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextDouble()) {
+                interestRate = scan.nextDouble();
+                if(0 < interestRate) {
+                    break;
+                }
+            }
+        }
+        double interestPercent = interestRate / 100;
+        double interestTotal = interestPercent * loanAmt * loanTerm;
+        double loanTotal = interestTotal + loanAmt;
+        System.out.println("Original Loan Amount: $" + loanAmt);
+        System.out.println("Loan Term: " + loanTerm + " years");
+        System.out.println("Interest Rate: " + interestRate + "%");
+        System.out.println("Accumulated Interest: $" + interestTotal);
+        System.out.println("Total Loan Amount: $" + loanTotal);
     }
 
+    public static void compoundingInterestNoPayment() {
+        Scanner scan;
+        while(true) {
+            System.out.println("How much is your loan? ($):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextDouble()) {
+                loanAmt = scan.nextDouble();
+                if(0 < loanAmt) {
+                    break;
+                }
+            }
+        }
+        while(true) {
+            System.out.println("How long is your loan period? (years):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextInt()) {
+                loanTerm = scan.nextInt();
+                if(0 < loanTerm) {
+                    break;
+                }
+            }
+        }
+        while(true) {
+            System.out.println("What is your given interest rate? (ex. 3.5% = 3.5):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextDouble()) {
+                interestRate = scan.nextDouble();
+                if(0 < interestRate) {
+                    break;
+                }
+            }
+        }
+        double interestPercent = interestRate / 100;
+        double loanMonths = loanTerm * 12;
+        double loanTotal = loanAmt * Math.pow(1 + (interestPercent / 12), loanMonths);
+        double totalInterest = loanTotal - loanAmt;
+        System.out.println("Original Loan Amount: $" + loanAmt);
+        System.out.println("Loan Term: " + loanTerm + " years");
+        System.out.println("Interest Rate: " + interestRate + "%");
+        System.out.println("Accumulated Interest: $" + totalInterest);
+        System.out.println("Total Loan Amount: $" + loanTotal);
+    }
+
+    public static void compoundingInterestWithPayement() {
+        Scanner scan;
+        while(true) {
+            System.out.println("How much is your loan? ($):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextDouble()) {
+                loanAmt = scan.nextDouble();
+                if(0 < loanAmt) {
+                    break;
+                }
+            }
+        }
+        while(true) {
+            System.out.println("How long is your loan period? (years):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextInt()) {
+                loanTerm = scan.nextInt();
+                if(0 < loanTerm) {
+                    break;
+                }
+            }
+        }
+        while(true) {
+            System.out.println("What is your given interest rate? (ex. 3.5% = 3.5):");
+            scan = new Scanner(System.in);
+            if(scan.hasNextDouble()) {
+                interestRate = scan.nextDouble();
+                if(0 < interestRate) {
+                    break;
+                }
+            }
+        }
+        double interestPercent = interestRate / 100;
+        double loanMonths = loanTerm * 12;
+        double ratePerMonth = interestPercent / 12;
+        double monthlyPayment = 1 + loanAmt * (ratePerMonth / (1 - Math.pow((1 + ratePerMonth), (loanTerm * -12))));
+        double loanTotal =  ( loanAmt * Math.pow((1 + ratePerMonth), loanMonths)) + ((monthlyPayment * (Math.pow((1 + ratePerMonth), loanMonths)-1)) / ratePerMonth);
+        double remainingPayment = loanTotal % monthlyPayment;
+        double totalInterest = loanTotal - loanAmt;
+        System.out.println("Original Loan Amount: $" + loanAmt);
+        System.out.println("Loan Term: " + loanTerm + " years");
+        System.out.println("Interest Rate: " + interestRate + "%");
+        System.out.println("Minimum Monthly Payment: $" + monthlyPayment);
+        System.out.println("Last Monthly Payment: $" + remainingPayment);
+        System.out.println("Accumulated Interest: $" + totalInterest);
+        System.out.println("Total Loan Amount: $" + loanTotal);
+    }
+    
     public static void printModeStatement() {
         System.out.print(
             "Select an interest calculation mode:\n"
