@@ -29,7 +29,8 @@
 
 3. Write the Hexadecimal (Base-16) number corresponding to the following Decimal numbers:
     * 16
-    1
+    10
     * 250
+    FA
     
 
