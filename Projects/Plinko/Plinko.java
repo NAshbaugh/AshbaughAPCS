@@ -1,9 +1,11 @@
 import java.util.Scanner;
+import java.util.Random;
 
 class Plinko {
     public static final int SINGLE_DISC = 1;
     public static final int MULTI_DISC = 2;
     public static final int TERMINATE = 3;
+    public static int discPosition = -1;
 
     public static final int[] VALUES = {1, 3, 2, 0, 5, 0, 2, 3, 1};
 
@@ -19,7 +21,7 @@ class Plinko {
             if(scan.hasNextInt()) {
                 mode = scan.nextInt();
                 if(mode == SINGLE_DISC) {
-                    System.out.println("Mode not yet implemented");
+                    singleDisc();
                 }
                 else if(mode == MULTI_DISC) {
                     System.out.println("Mode not yet implemented");
@@ -34,6 +36,26 @@ class Plinko {
         }
     }
 
+    public static void singleDisc() {
+        Scanner scan;
+        while(true) {
+            System.out.println("Choose a slot to drop your disc (0-8).");
+            scan = new Scanner(System.in);
+            if(scan.hasNextInt()) {
+                discPosition = scan.nextInt();
+                if(0 <= discPosition && discPosition <= 8) {
+                    break;
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
     public static int runOddRow(int position) {
         //Modify the position.
         //Print the visualization of the row if it's single disc mode.
