@@ -48,7 +48,16 @@ class Plinko {
                 }
             }
         }
+        System.out.println("You chose slot " + discPosition + "!");
         
+        for(int x=0; x < 12; x++) {
+            if(x % 2 == 0) {
+                System.out.println("1");
+            }
+            else {
+                System.out.println("2");
+            }
+        }
     }
     
     
@@ -56,16 +65,18 @@ class Plinko {
     
     
     
-    public static int runOddRow(int position) {
+    public static int printOddRow(int position) {
         //Modify the position.
         //Print the visualization of the row if it's single disc mode.
+        System.out.println("Help");
 
         return position;
     }
 
-    public static int runEvenRow(int position) {
+    public static int printEvenRow(int position) {
         //Modify the position.
         //Print the visualization of the row if it's single disc mode.
+        System.out.println("Help");
 
         return position;
     }
