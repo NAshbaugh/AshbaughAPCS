@@ -42,16 +42,20 @@ class Plinko {
             System.out.println("Choose a slot to drop your disc (0-8).");
             scan = new Scanner(System.in);
             if(scan.hasNextInt()) {
-                discPosition = scan.nextInt();
-                if(0 <= discPosition && discPosition <= 8) {
+                initialPosition = scan.nextInt();
+                if(0 <= initialPosition && initialPosition <= 8) {
                     break;
                 }
             }
         }
-        System.out.println("You chose slot " + discPosition + "!");
-        
-        for(int x=0; x < 12; x++) {
-            if(x % 2 == 0) {
+        System.out.println("You chose slot " + initialPosition + "!");
+        int position = initialPosition * 2;
+        int i = -1;
+        for(i=0; i < 12; i++) {
+            if(position == i) {
+                
+            }
+            if(isEven(i)) {
                 System.out.println("1");
             }
             else {
