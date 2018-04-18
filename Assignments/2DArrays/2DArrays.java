@@ -18,13 +18,12 @@ class 2DArrays {
         }
     }
 
-        // [0,2,16]
+        // [0,4,16]
         // [36,64,100]
         // [144,196,256]
 
 
-    int[][] arr3 = new int[5][5];
-
+    int[][] arr3 = new int[4][4];
     int num = 1;
     for(int i = 0; i < arr3.length; i++) {
         for(int j = 0; j < arr3[i].length; j++) {
